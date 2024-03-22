@@ -1,5 +1,11 @@
+import {useEffect} from "react"
 import Card from "./Card"
-function Home() {
+function Home({products,getData}) {
+  let homeData = products.slice(0,4)
+  console.log(homeData);
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <section className="py-5 text-center container">
     <div className="row py-lg-5">
@@ -14,10 +20,12 @@ function Home() {
     </div>
     <div className="container">
         <div className="row">
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+          { 
+            homeData.map((product,index)=>{
+              return <Card key={index} product={product}/>
+            })
+}
+          
       </div>
       </div>
   </section>

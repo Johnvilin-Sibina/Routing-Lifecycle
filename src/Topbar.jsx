@@ -40,6 +40,11 @@ function Topbar() {
                                Contact
                             </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to={"/blog/politics"} target="_blank">
+                               Blog
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>
