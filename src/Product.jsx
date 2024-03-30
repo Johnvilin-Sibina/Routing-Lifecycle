@@ -1,16 +1,24 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Product() {
   const params = useParams();
   const [product, setProduct] = useState({});
   const getProductData = async () => {
     try {
-      const productData = await fetch(
+      // const productData = await fetch(
+      //   `https://65fba50a14650eb2100a446c.mockapi.io/products/${params.productid}`
+      // );
+      // const productResp = await productData.json();
+
+      //Fetching data from API using axios
+      const productData = await axios.get(
         `https://65fba50a14650eb2100a446c.mockapi.io/products/${params.productid}`
       );
-      const productResp = await productData.json();
-      setProduct(productResp);
+
+      // setProduct(productResp);
+      setProduct(productData.data);//axios
     } catch (error) {
       console.log(error);
     }
